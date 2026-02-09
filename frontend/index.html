@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartment Price Prediction</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Predicting Apartment Prices Made <span class="highlight">Easy</span></h1>
+            <p class="hero-subtitle">Designed for home buyers, sellers, and students to estimate apartment prices in selected Russian districts using real housing data</p>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <div class="content-grid">
+            <!-- Form Container -->
+            <div class="form-container">
+                <h2 class="form-title">Apartment Details</h2>
+                <p class="form-subtitle">Fill in the information below to get your price estimate</p>
+
+                <form id="predictionForm">
+                    <div class="form-grid">
+                        <div class="section-title">Location Information</div>
+
+                        <div class="form-group">
+                            <label for="floor_max">Total Floors in the Building</label>
+                            <input type="number" id="floor_max" name="floor_max" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="floor">Floor Number</label>
+                            <input type="number" id="floor" name="floor" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="district_name">District</label>
+                            <select id="district_name" name="district_name" required>
+                                <option value="">Select district</option>
+                                <option value="Centralnyj">Centralnyj</option>
+                                <option value="Petrogradskij">Petrogradskij</option>
+                                <option value="Nevskij">Nevskij</option>
+                                <option value="Moskovskij">Moskovskij</option>
+                                <option value="Vyborgskij">Vyborgskij</option>
+                                <option value="Krasnoselskij">Krasnoselskij</option>
+                                <option value="Kirovskij">Kirovskij</option>
+                            </select>
+                        </div>
+
+                        <div class="section-title">Property Details</div>
+
+                        <div class="form-group">
+                            <label for="year">Year Built</label>
+                            <input type="number" id="year" name="year" min="1800" max="2030" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ceil_height">Ceiling Height (m)</label>
+                            <input type="number" id="ceil_height" name="ceil_height" step="0.1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rooms_count">Number of Rooms</label>
+                            <input type="number" id="rooms_count" name="rooms_count" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bath_count">Number of Bathrooms</label>
+                            <input type="number" id="bath_count" name="bath_count" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="extra_area_type_name">Extra Area Type</label>
+                            <select id="extra_area_type_name" name="extra_area_type_name" required>
+                                <option value="">Select type</option>
+                                <option value="balcony">Balcony</option>
+                                <option value="loggia">Loggia</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="extra_area_count">Extra Area Count</label>
+                            <input type="number" id="extra_area_count" name="extra_area_count" min="0" required>
+                        </div>
+
+                        <div class="section-title">Property Areas (m²)</div>
+
+                        <div class="form-group">
+                            <label for="kitchen_area">Kitchen Area</label>
+                            <input type="number" id="kitchen_area" name="kitchen_area" step="0.1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bath_area">Bathroom Area</label>
+                            <input type="number" id="bath_area" name="bath_area" step="0.1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="other_area">Other Area</label>
+                            <input type="number" id="other_area" name="other_area" step="0.1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="extra_area">Extra Area (Balcony or Loggia)</label>
+                            <input type="number" id="extra_area" name="extra_area" step="0.1" min="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="total_area">Total Area</label>
+                            <input type="number" id="total_area" name="total_area" step="0.1" required>
+                        </div>
+
+                        <div class="section-title">Amenities</div>
+
+                        <div class="form-group">
+                            <label>Gas Connection</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="gas_yes" name="gas" value="yes" required>
+                                    <label for="gas_yes">Yes</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="gas_no" name="gas" value="no">
+                                    <label for="gas_no">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Hot Water</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="hot_water_yes" name="hot_water" value="yes" required>
+                                    <label for="hot_water_yes">Yes</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="hot_water_no" name="hot_water" value="no">
+                                    <label for="hot_water_no">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Central Heating</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="central_heating_yes" name="central_heating" value="yes"
+                                        required>
+                                    <label for="central_heating_yes">Yes</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="central_heating_no" name="central_heating" value="no">
+                                    <label for="central_heating_no">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="predict-btn" id="predictBtn">
+                        <span>Get Price Prediction</span>
+                        <span class="loading-spinner" id="loadingSpinner" style="display: none;"></span>
+                    </button>
+
+                    <div id="errorContainer" class="error-container">
+                        <strong>Error:</strong> <span id="errorMessage"></span>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Results Sidebar -->
+            <div class="results-sidebar">
+                <div id="resultContainer" class="result-container empty">
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <p>Your price estimate will appear here</p>
+                        <small>Fill out the form and click "Get Price Prediction"</small>
+                    </div>
+
+                    <div class="result-content">
+                        <div class="result-label">Estimated Property Value</div>
+                        <div class="result-price" id="predictedPrice">₽0</div>
+                        <div class="result-price-range" id="predictedPriceRange"></div>
+                        <div class="confidence-badge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            99.93% Accurate
+                        </div>
+                        <div class="result-details" id="resultDetails"></div>
+                    </div>
+                </div>
+
+                <!-- Model Performance Card -->
+                <div class="model-performance">
+                    <div class="performance-title">Model Accuracy</div>
+                    <div class="performance-summary">
+                        Our model estimates luxury home prices with an average error under
+                        <strong>1%</strong>, and most predictions fall within
+                        <strong>±2%</strong> of actual sale prices, based on historical market data.
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="metric-value">0.9993</span>
+                            <span class="metric-label">R²</span>
+                            <span class="metric-description">Variance Explained</span>
+                        </div>
+
+                        <div class="metric-item">
+                            <span class="metric-value">0.88%</span>
+                            <span class="metric-label">MAPE</span>
+                            <span class="metric-description">Mean % Error</span>
+                        </div>
+
+                        <div class="metric-item">
+                            <span class="metric-value">$130K</span>
+                            <span class="metric-label">MAE</span>
+                            <span class="metric-description">Avg Absolute Error (~0.85%)</span>
+                        </div>
+
+                        <div class="metric-item">
+                            <span class="metric-value">$154K</span>
+                            <span class="metric-label">RMSE</span>
+                            <span class="metric-description">Error incl. Outliers (~1.0%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
