@@ -13,7 +13,8 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Predicting Apartment Prices Made <span class="highlight">Easy</span></h1>
-            <p class="hero-subtitle">Designed for home buyers, sellers, and students to estimate apartment prices in selected Russian districts using real housing data</p>
+            <p class="hero-subtitle">Designed for home buyers, sellers, and students to estimate apartment prices in
+                selected Russian districts using real housing data</p>
         </div>
     </section>
 
@@ -62,17 +63,18 @@
 
                         <div class="form-group">
                             <label for="ceil_height">Ceiling Height (m)</label>
-                            <input type="number" id="ceil_height" name="ceil_height" step="0.1" required>
+                            <input type="number" id="ceil_height" name="ceil_height" step="0.1" min="2.2" max="25"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="rooms_count">Number of Rooms</label>
-                            <input type="number" id="rooms_count" name="rooms_count" min="1" required>
+                            <input type="number" id="rooms_count" name="rooms_count" min="1" max="10" required>
                         </div>
 
                         <div class="form-group">
                             <label for="bath_count">Number of Bathrooms</label>
-                            <input type="number" id="bath_count" name="bath_count" min="1" required>
+                            <input type="number" id="bath_count" name="bath_count" min="1" max="6" required>
                         </div>
 
                         <div class="form-group">
@@ -87,34 +89,37 @@
 
                         <div class="form-group">
                             <label for="extra_area_count">Extra Area Count</label>
-                            <input type="number" id="extra_area_count" name="extra_area_count" min="0" required>
+                            <input type="number" id="extra_area_count" name="extra_area_count" min="0" max="10" required>
                         </div>
 
                         <div class="section-title">Property Areas (m²)</div>
 
                         <div class="form-group">
                             <label for="kitchen_area">Kitchen Area</label>
-                            <input type="number" id="kitchen_area" name="kitchen_area" step="0.1" required>
+                            <input type="number" id="kitchen_area" name="kitchen_area" step="0.1" min="4" max="40"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="bath_area">Bathroom Area</label>
-                            <input type="number" id="bath_area" name="bath_area" step="0.1" required>
+                            <input type="number" id="bath_area" name="bath_area" step="0.1" min="2.5" max="20" required>
                         </div>
 
                         <div class="form-group">
                             <label for="other_area">Other Area</label>
-                            <input type="number" id="other_area" name="other_area" step="0.1" required>
+                            <input type="number" id="other_area" name="other_area" step="0.1" min="10" max="220"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="extra_area">Extra Area (Balcony or Loggia)</label>
-                            <input type="number" id="extra_area" name="extra_area" step="0.1" min="0" required>
+                            <input type="number" id="extra_area" name="extra_area" step="0.1" min="0" max="50" required>
                         </div>
 
                         <div class="form-group">
                             <label for="total_area">Total Area</label>
-                            <input type="number" id="total_area" name="total_area" step="0.1" required>
+                            <input type="number" id="total_area" name="total_area" step="0.1" min="15" max="330"
+                                required>
                         </div>
 
                         <div class="section-title">Amenities</div>
